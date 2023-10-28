@@ -20,13 +20,9 @@ const UserLogin = () => {
     }
     const res = await loginUser(actualData)
     if (res.error) {
-      // console.log(typeof (res.error.data.errors))
-      // console.log(res.error.data.errors)
       setServerError(res.error.data.errors)
     }
     if (res.data) {
-      // console.log(typeof (res.data))
-      // console.log(res.data)
       storeToken(res.data.token) // Get the token and store it
       let { access_token } = getToken()
       dispatch(setUserToken({ access_token: access_token }))
